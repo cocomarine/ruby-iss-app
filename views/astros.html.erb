@@ -1,2 +1,14 @@
 <h1>Who are in space right now? 🧑‍🚀</h1>
 <p>There are currently <%= data['number'] %> people.</p>
+<table>
+  <tr>
+    <th>Spaceship</th>
+    <th>Name</th>
+  </tr>
+  <% data['people'].each do |person| %>
+    <tr>
+      <td><%= person['craft'] %></td>
+      <td><%= person['name'] %></td>
+    </tr>
+  <% end %> 
+</table>
