@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# myapp.rb
+# app.rb
 require 'sinatra'
 require_relative 'open_notify'
 
@@ -17,4 +17,10 @@ get '/position' do
   iss_now = OpenNotify.iss_now
 
   erb :position, locals: { data: iss_now }
+end
+
+get '/astros' do
+  astros = OpenNotify.astros
+
+  erb :astros, locals: { data: astros }
 end
