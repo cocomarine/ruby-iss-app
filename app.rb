@@ -3,7 +3,7 @@
 # app.rb
 require 'sinatra'
 require_relative 'open_notify'
-# hj: importing json gem
+# hj: importing json module
 require 'json'
 
 # Allow our templates in views/ to end in `.html.erb`
