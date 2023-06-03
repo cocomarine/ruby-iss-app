@@ -1,14 +1,18 @@
 <h1>Who are in space right now? 🧑‍🚀</h1>
-<p>There are currently <%= data['number'] %> people in the ISS.</p>
+<h5><a href="/">< Home</a></h5>
+<p>There are currently total <%= data['number'] %> people in the ISS.</p>
 <table>
   <tr>
     <th>Spaceship</th>
     <th>Name</th>
   </tr>
-  <% data['people'].each do |person| %>
-    <tr>
-      <td><%= person['craft'] %></td>
-      <td><%= person['name'] %></td>
-    </tr>
+  <% spaceships = data['people'].group_by { |person| person['craft'] } %>
+  <% spaceships.each do |spaceship, people| %>
+    <% people.each do |person| %>
+      <tr>
+        <td><%= person['craft'] %></td>
+        <td><%= person['name'] %></td>
+      </tr>
+    <% end %>
   <% end %> 
 </table>
