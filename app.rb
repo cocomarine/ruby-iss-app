@@ -11,14 +11,16 @@ Tilt.register Tilt::ERBTemplate, 'html.erb'
 
 set :layout, 'views/layout.html.erb'
 
-iss_now = OpenNotify.iss_now
+def iss_now
+  OpenNotify.iss_now
+end
 
 get '/' do
   erb :index
 end
 
 get '/position' do
-  # hj: moved iss_now as a global variable
+  # hj: moved iss_now as a global method
   # iss_now = OpenNotify.iss_now
 
   erb :position, locals: { data: iss_now }
